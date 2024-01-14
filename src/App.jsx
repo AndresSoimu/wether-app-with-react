@@ -24,22 +24,18 @@ function App() {
     if (!location) return;
     setCity(location);
     document.querySelector(".input").value = "";
-  }
+}
   ///////////////////////////
-
   useEffect(() => {
     callApi({ city, ApiUrl }).then((newData) => setData(newData));
   }, [city, ApiUrl]);
   ///////////////////////////
-
   if (!data) return;
   ////////////////////////////////////////////////////////////////////////
-
   const { location, current, forecast } = data;
   const arrayTempXHour = forecast.forecastday[0].hour;
   const { date, day, hour } = forecast.forecastday[1];
   const { date: dateTwo, day: dayTwo, hour: hourTwo } = forecast.forecastday[2];
-  
   ////////////////////////////////////////////////////////
   const TableContent = ({ arrayForMap }) => {
     return (

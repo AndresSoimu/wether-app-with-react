@@ -1,7 +1,10 @@
 export async function callApi({ city, ApiUrl }) {
   if (!city) return;
   try {
-    const response = await fetch(ApiUrl);
+    const response = await fetch(ApiUrl, {
+      mode: "cors",
+      credentials: "include",
+    });
     if (!response.ok) {
       throw new Error("error fetching API");
     }

@@ -7,12 +7,10 @@ function HourConditions(props) {
       <table>
         <thead>
           <tr>
-            <th>Hour</th>
-            <th>Temperature</th>
-            <th>Condition</th>
+            <h1>24 Hours</h1>
           </tr>
         </thead>
-        {children}
+        <tbody>{children}</tbody>
       </table>
     </section>
   );

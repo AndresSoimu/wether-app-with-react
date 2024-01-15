@@ -1,22 +1,29 @@
 html {
+  box-sizing: border-box;
   overflow-y: scroll;
   scroll-behavior: smooth;
   display: contents;
+  position: relative;
+  background-color: #151130;
 }
 
 nav {
   margin: 0;
-  width: 100%;
-  background-color: #000;
+  position: fixed;
+  top: 40px;
+  justify-content: center;
   display: flex;
   padding: 1em 0;
-  justify-content: space-around;
   text-align: center;
+  gap: 6px;
 }
 
 nav a {
-  color: #fff;
-  margin: 0 1em;
+  border: 2px solid #0bc4e0f9;
+  border-radius: 6px;
+  color: #e9dd03;
+  margin: 0;
+  padding: 6px;
   text-decoration: none;
 }
 
@@ -24,40 +31,52 @@ nav a {
   display: flex;
   width: 100%;
   height: 100vh;
-  background-color: #060d1a;
   flex-direction: column;
   text-align: center;
-  color: white;
-  border-bottom: 2px solid #2f342f;
+  color: #979292;
+  border-bottom: 2px solid #1d351d;
+}
+.html h1{
+  display: flex;
+  text-wrap: nowrap;
 }
 .app {
   display: flex;
+  flex-direction: column;
   width: 100%;
   height: 100%;
   text-align: center;
-  background-color: #060d1a;
+  background-color: #151130;
   align-items: stretch;
   justify-content: space-around;
-  color: white;
 }
 
+.first-page {
+  display: flex;
+  gap: 2rem;
+  flex-direction: column;
+}
+
+.first-page aside {
+  display: flex;
+  flex-direction: row;
+  gap: 3em;
+}
 .temperature-now {
   display: flex;
-  flex-direction: column;
   justify-content: space-between;
 }
 .temperature-now h1 {
-  color: #0fd850;
   padding: 0;
   margin: 0;
 }
 header {
-  margin-top: 15px;
   gap: 35px;
-  width: 100%;
+  position: fixed;
+  top: 40px;
+  right: 20px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
 }
 form {
@@ -103,7 +122,6 @@ button:hover::before {
 }
 
 .location {
-  color: #e9dd03;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -111,10 +129,9 @@ button:hover::before {
 }
 
 .location h3 {
-  color: #e9dd03;
+  color: #979292cc;
   display: flex;
   margin: 6px 0 0 10px;
-  opacity: 0.5;
 }
 .location h1 {
   font-size: 26px;
@@ -122,53 +139,96 @@ button:hover::before {
   margin: 0;
 }
 aside {
-  color: rgba(115, 153, 186, 0.958);
+  color: #979292;
   width: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 10px;
-  flex-wrap: nowrap;
 }
 aside h1 {
-  font-size: 5rem;
+  font-size: 3rem;
+  color: #4cbff0;
 }
 
 .current-time {
   color: rgb(108, 121, 133);
 }
 span {
-  color: #0fd850;
+  color: #0bc4e0f9;
 }
 table {
-  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 }
-table th {
-  color: #e9dd03;
-  margin-bottom: 10px;
+
+table thead {
+  color: #0bc4e0f9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+tbody div {
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
   justify-content: space-between;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: #555753;
+  color: #979292;
+}
+tbody tr:nth-child(even) {
+  background-color: #979292;
+  color: #555753;
+}
+
+tbody tr {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: calc(100% / 24);
+  height: 160px;
+}
+tbody:hover {
+  background-color: #404843;
+
+  cursor: none;
+}
+tbody tr:hover {
+  color: #e9dd03;
+}
+
+tbody tr td {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+}
+table h3 {
+  font-size: 0.65em;
+  padding: 6px;
 }
 
 table td img {
-  width: 1.5em;
-  height: 1.5em;
+  width: 2.5em;
+  height: 2.5em;
 }
-table tr {
-  color: rgba(115, 153, 186, 0.958);
-  gap: 15px;
-  display: flex;
-  justify-content: space-between;
-}
-
-table tr td {
-  width: 60px;
-  display: flex;
-  justify-content: flex-end;
-}
-
 @media screen and (max-width: 768px) {
   .html {
     height: 100%;
+  }
+  .html h1{
+    display: flex;
+    text-wrap: nowrap;
+    font-size: 1.3em;
+    justify-content: center;
+    gap: 1em;
   }
   .app {
     flex-direction: column;
@@ -177,5 +237,28 @@ table tr td {
   }
   aside h1 {
     font-size: 3rem;
+  }
+  tbody div {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0px;
+  }
+  tbody div tr {
+    width: calc(100% / 6);
+    margin-bottom: 2px;
+  }
+  aside h1 {
+    font-size: 1rem;
+  }
+  header{
+    position: relative;
+  }
+  .first-page aside{
+    flex-direction: column;
+    height: 300px;
+  }
+  nav{
+    width: 100%;
+    justify-content: center;
   }
 }

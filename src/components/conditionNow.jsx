@@ -1,11 +1,10 @@
-import { formattedHour } from "../utilities/utilities";
 import PropTypes from "prop-types";
 
 export default function NowCondition(props) {
-  const { time, callback, name, country, icon, temp } = props;
+  const { text, callback, name, country, icon, temp } = props;
 
   return (
-    <section className="temperature-now">
+    <section className="temperature-now first-page">
       <header>
         <section className="location">
           <h1>{name}</h1>
@@ -26,22 +25,19 @@ export default function NowCondition(props) {
       </header>
 
       <aside>
-        <img src={icon} alt={`icon with ${icon}`} />
         <h1>{temp} ℃</h1>
+        <div>
+          <h3> {text}</h3>
+          <img src={icon} alt={`icon with ${icon}`} />
+        </div>
       </aside>
-      <footer>
-        <p className="current-time">
-          Updated at <span>{formattedHour(time)}</span> time in{" "}
-          <span>{name}</span>
-        </p>
-      </footer>
     </section>
   );
 }
 
 NowCondition.propTypes = {
   temp: PropTypes.node,
-  time: PropTypes.node,
+  text: PropTypes.node,
   icon: PropTypes.node,
   name: PropTypes.string.isRequired,
   callback: PropTypes.func.isRequired,

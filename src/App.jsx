@@ -24,7 +24,7 @@ function App() {
     if (!location) return;
     setCity(location);
     document.querySelector(".input").value = "";
-}
+  }
   ///////////////////////////
   useEffect(() => {
     callApi({ city, ApiUrl }).then((newData) => setData(newData));
@@ -39,21 +39,25 @@ function App() {
   ////////////////////////////////////////////////////////
   const TableContent = ({ arrayForMap }) => {
     return (
-      <tbody>
+      <div>
         {arrayForMap.map((element, index) => {
           const { time, temp_c, condition } = element;
           const { icon, text } = condition;
           return (
             <tr key={index}>
-              <td>{formattedHour(time)}</td>
-              <td>{temp_c} ℃</td>
+              <td>
+                <h3>{formattedHour(time)}</h3>
+              </td>
+              <td>
+                <h3>{temp_c} ℃</h3>
+              </td>
               <td>
                 <img src={icon} alt={text} />
               </td>
             </tr>
           );
         })}
-      </tbody>
+      </div>
     );
   };
 
@@ -65,6 +69,7 @@ function App() {
   return (
     <div>
       <nav>
+        <a href={`#${formattedDate(current.last_updated)}`}>{formattedDate(current.last_updated)}</a>
         <a href={`#${formattedDate(date)}`}>{formattedDate(date)}</a>
         <a href={`#${formattedDate(dateTwo)}`}>{formattedDate(dateTwo)}</a>
       </nav>
@@ -77,6 +82,7 @@ function App() {
             name={location.name}
             country={location.country}
             icon={current.condition.icon}
+            text={current.condition.text}
             temp={current.temp_c}
           />
           <HourConditions>

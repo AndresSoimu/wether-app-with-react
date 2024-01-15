@@ -4,7 +4,7 @@ html {
   scroll-behavior: smooth;
   display: contents;
   position: relative;
-  background-color: #151130;
+  background-color: #100d1b;
 }
 
 nav {
@@ -34,7 +34,6 @@ nav a {
   flex-direction: column;
   text-align: center;
   color: #979292;
-  border-bottom: 2px solid #1d351d;
 }
 
 .app {
@@ -43,7 +42,7 @@ nav a {
   width: 100%;
   height: 100%;
   text-align: center;
-  background-color: #151130;
+  background-color: #100d1b;
   align-items: stretch;
   justify-content: space-around;
 }
